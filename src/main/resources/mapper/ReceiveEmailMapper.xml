@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cbec.dao.ReceiveEmailMapper">
+  <resultMap id="BaseResultMap" type="com.cbec.model.ReceiveEmail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="mail_uid" jdbcType="VARCHAR" property="mailUid" />
+    <result column="source_lang" jdbcType="SMALLINT" property="sourceLang" />
+    <result column="target_lang" jdbcType="SMALLINT" property="targetLang" />
+    <result column="to_email" jdbcType="VARCHAR" property="toEmail" />
+    <result column="cc_email" jdbcType="VARCHAR" property="ccEmail" />
+    <result column="bcc_email" jdbcType="VARCHAR" property="bccEmail" />
+    <result column="send_user" jdbcType="VARCHAR" property="sendUser" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="source_json" jdbcType="VARCHAR" property="sourceJson" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="target_finshtime" jdbcType="TIMESTAMP" property="targetFinshtime" />
+    <result column="is_translation" jdbcType="BIGINT" property="isTranslation" />
+    <result column="isread" jdbcType="BIGINT" property="isread" />
+    <result column="state_id" jdbcType="VARCHAR" property="stateId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="distinct_translate" jdbcType="INTEGER" property="distinctTranslate" />
+    <result column="re_translate" jdbcType="INTEGER" property="reTranslate" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="notranslate_reason" jdbcType="INTEGER" property="notranslateReason" />
+    <result column="retranslate_reason" jdbcType="VARCHAR" property="retranslateReason" />
+    <result column="sent_date" jdbcType="TIMESTAMP" property="sentDate" />
+    <result column="antiRubbishSuggest" jdbcType="VARCHAR" property="antirubbishsuggest" />
+    <result column="emailType" jdbcType="VARCHAR" property="emailtype" />
+    <result column="mailHeadMd5" jdbcType="VARCHAR" property="mailheadmd5" />
+    <result column="platformInfo_id" jdbcType="INTEGER" property="platforminfoId" />
+    <result column="replyEmailMessageId" jdbcType="VARCHAR" property="replyemailmessageid" />
+    <result column="targetTitle" jdbcType="VARCHAR" property="targettitle" />
+    <result column="attachment_url" jdbcType="VARCHAR" property="attachmentUrl" />
+    <result column="emailContent" jdbcType="VARCHAR" property="emailcontent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, title, mail_uid, source_lang, target_lang, to_email, cc_email, bcc_email, send_user, 
+    user_id, source_url, source_json, target_url, target_finshtime, is_translation, isread, 
+    state_id, create_time, distinct_translate, re_translate, update_time, notranslate_reason, 
+    retranslate_reason, sent_date, antiRubbishSuggest, emailType, mailHeadMd5, platformInfo_id, 
+    replyEmailMessageId, targetTitle, attachment_url, emailContent
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.ReceiveEmail">
+    insert into receive_email
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="mailUid != null">
+        mail_uid,
+      </if>
+      <if test="sourceLang != null">
+        source_lang,
+      </if>
+      <if test="targetLang != null">
+        target_lang,
+      </if>
+      <if test="toEmail != null">
+        to_email,
+      </if>
+      <if test="ccEmail != null">
+        cc_email,
+      </if>
+      <if test="bccEmail != null">
+        bcc_email,
+      </if>
+      <if test="sendUser != null">
+        send_user,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="sourceJson != null">
+        source_json,
+      </if>
+      <if test="targetUrl != null">
+        target_url,
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime,
+      </if>
+      <if test="isTranslation != null">
+        is_translation,
+      </if>
+      <if test="isread != null">
+        isread,
+      </if>
+      <if test="stateId != null">
+        state_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="distinctTranslate != null">
+        distinct_translate,
+      </if>
+      <if test="reTranslate != null">
+        re_translate,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="notranslateReason != null">
+        notranslate_reason,
+      </if>
+      <if test="retranslateReason != null">
+        retranslate_reason,
+      </if>
+      <if test="sentDate != null">
+        sent_date,
+      </if>
+      <if test="antirubbishsuggest != null">
+        antiRubbishSuggest,
+      </if>
+      <if test="emailtype != null">
+        emailType,
+      </if>
+      <if test="mailheadmd5 != null">
+        mailHeadMd5,
+      </if>
+      <if test="platforminfoId != null">
+        platformInfo_id,
+      </if>
+      <if test="replyemailmessageid != null">
+        replyEmailMessageId,
+      </if>
+      <if test="targettitle != null">
+        targetTitle,
+      </if>
+      <if test="attachmentUrl != null">
+        attachment_url,
+      </if>
+      <if test="emailcontent != null">
+        emailContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="mailUid != null">
+        #{mailUid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="toEmail != null">
+        #{toEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        #{ccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        #{bccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="sendUser != null">
+        #{sendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isTranslation != null">
+        #{isTranslation,jdbcType=BIGINT},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distinctTranslate != null">
+        #{distinctTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="reTranslate != null">
+        #{reTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notranslateReason != null">
+        #{notranslateReason,jdbcType=INTEGER},
+      </if>
+      <if test="retranslateReason != null">
+        #{retranslateReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sentDate != null">
+        #{sentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="antirubbishsuggest != null">
+        #{antirubbishsuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mailheadmd5 != null">
+        #{mailheadmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="platforminfoId != null">
+        #{platforminfoId,jdbcType=INTEGER},
+      </if>
+      <if test="replyemailmessageid != null">
+        #{replyemailmessageid,jdbcType=VARCHAR},
+      </if>
+      <if test="targettitle != null">
+        #{targettitle,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentUrl != null">
+        #{attachmentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="emailcontent != null">
+        #{emailcontent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.ReceiveEmail">
+    update receive_email
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="mailUid != null">
+        mail_uid = #{mailUid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        source_lang = #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        target_lang = #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="toEmail != null">
+        to_email = #{toEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        cc_email = #{ccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        bcc_email = #{bccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="sendUser != null">
+        send_user = #{sendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        source_json = #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        target_url = #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime = #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isTranslation != null">
+        is_translation = #{isTranslation,jdbcType=BIGINT},
+      </if>
+      <if test="isread != null">
+        isread = #{isread,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        state_id = #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distinctTranslate != null">
+        distinct_translate = #{distinctTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="reTranslate != null">
+        re_translate = #{reTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notranslateReason != null">
+        notranslate_reason = #{notranslateReason,jdbcType=INTEGER},
+      </if>
+      <if test="retranslateReason != null">
+        retranslate_reason = #{retranslateReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sentDate != null">
+        sent_date = #{sentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="antirubbishsuggest != null">
+        antiRubbishSuggest = #{antirubbishsuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        emailType = #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mailheadmd5 != null">
+        mailHeadMd5 = #{mailheadmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="platforminfoId != null">
+        platformInfo_id = #{platforminfoId,jdbcType=INTEGER},
+      </if>
+      <if test="replyemailmessageid != null">
+        replyEmailMessageId = #{replyemailmessageid,jdbcType=VARCHAR},
+      </if>
+      <if test="targettitle != null">
+        targetTitle = #{targettitle,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentUrl != null">
+        attachment_url = #{attachmentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="emailcontent != null">
+        emailContent = #{emailcontent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.ReceiveEmail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="mail_uid" jdbcType="VARCHAR" property="mailUid" />
+    <result column="source_lang" jdbcType="SMALLINT" property="sourceLang" />
+    <result column="target_lang" jdbcType="SMALLINT" property="targetLang" />
+    <result column="to_email" jdbcType="VARCHAR" property="toEmail" />
+    <result column="cc_email" jdbcType="VARCHAR" property="ccEmail" />
+    <result column="bcc_email" jdbcType="VARCHAR" property="bccEmail" />
+    <result column="send_user" jdbcType="VARCHAR" property="sendUser" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="source_json" jdbcType="VARCHAR" property="sourceJson" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="target_finshtime" jdbcType="TIMESTAMP" property="targetFinshtime" />
+    <result column="is_translation" jdbcType="BIGINT" property="isTranslation" />
+    <result column="isread" jdbcType="BIGINT" property="isread" />
+    <result column="state_id" jdbcType="VARCHAR" property="stateId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="distinct_translate" jdbcType="INTEGER" property="distinctTranslate" />
+    <result column="re_translate" jdbcType="INTEGER" property="reTranslate" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="notranslate_reason" jdbcType="INTEGER" property="notranslateReason" />
+    <result column="retranslate_reason" jdbcType="VARCHAR" property="retranslateReason" />
+    <result column="sent_date" jdbcType="TIMESTAMP" property="sentDate" />
+    <result column="antiRubbishSuggest" jdbcType="VARCHAR" property="antirubbishsuggest" />
+    <result column="emailType" jdbcType="VARCHAR" property="emailtype" />
+    <result column="mailHeadMd5" jdbcType="VARCHAR" property="mailheadmd5" />
+    <result column="platformInfo_id" jdbcType="INTEGER" property="platforminfoId" />
+    <result column="replyEmailMessageId" jdbcType="VARCHAR" property="replyemailmessageid" />
+    <result column="targetTitle" jdbcType="VARCHAR" property="targettitle" />
+    <result column="attachment_url" jdbcType="VARCHAR" property="attachmentUrl" />
+    <result column="emailContent" jdbcType="VARCHAR" property="emailcontent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, title, mail_uid, source_lang, target_lang, to_email, cc_email, bcc_email, send_user, 
+    user_id, source_url, source_json, target_url, target_finshtime, is_translation, isread, 
+    state_id, create_time, distinct_translate, re_translate, update_time, notranslate_reason, 
+    retranslate_reason, sent_date, antiRubbishSuggest, emailType, mailHeadMd5, platformInfo_id, 
+    replyEmailMessageId, targetTitle, attachment_url, emailContent
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.ReceiveEmail">
+    insert into receive_email
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="mailUid != null">
+        mail_uid,
+      </if>
+      <if test="sourceLang != null">
+        source_lang,
+      </if>
+      <if test="targetLang != null">
+        target_lang,
+      </if>
+      <if test="toEmail != null">
+        to_email,
+      </if>
+      <if test="ccEmail != null">
+        cc_email,
+      </if>
+      <if test="bccEmail != null">
+        bcc_email,
+      </if>
+      <if test="sendUser != null">
+        send_user,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="sourceJson != null">
+        source_json,
+      </if>
+      <if test="targetUrl != null">
+        target_url,
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime,
+      </if>
+      <if test="isTranslation != null">
+        is_translation,
+      </if>
+      <if test="isread != null">
+        isread,
+      </if>
+      <if test="stateId != null">
+        state_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="distinctTranslate != null">
+        distinct_translate,
+      </if>
+      <if test="reTranslate != null">
+        re_translate,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="notranslateReason != null">
+        notranslate_reason,
+      </if>
+      <if test="retranslateReason != null">
+        retranslate_reason,
+      </if>
+      <if test="sentDate != null">
+        sent_date,
+      </if>
+      <if test="antirubbishsuggest != null">
+        antiRubbishSuggest,
+      </if>
+      <if test="emailtype != null">
+        emailType,
+      </if>
+      <if test="mailheadmd5 != null">
+        mailHeadMd5,
+      </if>
+      <if test="platforminfoId != null">
+        platformInfo_id,
+      </if>
+      <if test="replyemailmessageid != null">
+        replyEmailMessageId,
+      </if>
+      <if test="targettitle != null">
+        targetTitle,
+      </if>
+      <if test="attachmentUrl != null">
+        attachment_url,
+      </if>
+      <if test="emailcontent != null">
+        emailContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="mailUid != null">
+        #{mailUid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="toEmail != null">
+        #{toEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        #{ccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        #{bccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="sendUser != null">
+        #{sendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isTranslation != null">
+        #{isTranslation,jdbcType=BIGINT},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distinctTranslate != null">
+        #{distinctTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="reTranslate != null">
+        #{reTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notranslateReason != null">
+        #{notranslateReason,jdbcType=INTEGER},
+      </if>
+      <if test="retranslateReason != null">
+        #{retranslateReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sentDate != null">
+        #{sentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="antirubbishsuggest != null">
+        #{antirubbishsuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mailheadmd5 != null">
+        #{mailheadmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="platforminfoId != null">
+        #{platforminfoId,jdbcType=INTEGER},
+      </if>
+      <if test="replyemailmessageid != null">
+        #{replyemailmessageid,jdbcType=VARCHAR},
+      </if>
+      <if test="targettitle != null">
+        #{targettitle,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentUrl != null">
+        #{attachmentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="emailcontent != null">
+        #{emailcontent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.ReceiveEmail">
+    update receive_email
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="mailUid != null">
+        mail_uid = #{mailUid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        source_lang = #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        target_lang = #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="toEmail != null">
+        to_email = #{toEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        cc_email = #{ccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        bcc_email = #{bccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="sendUser != null">
+        send_user = #{sendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        source_json = #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        target_url = #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime = #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isTranslation != null">
+        is_translation = #{isTranslation,jdbcType=BIGINT},
+      </if>
+      <if test="isread != null">
+        isread = #{isread,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        state_id = #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distinctTranslate != null">
+        distinct_translate = #{distinctTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="reTranslate != null">
+        re_translate = #{reTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notranslateReason != null">
+        notranslate_reason = #{notranslateReason,jdbcType=INTEGER},
+      </if>
+      <if test="retranslateReason != null">
+        retranslate_reason = #{retranslateReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sentDate != null">
+        sent_date = #{sentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="antirubbishsuggest != null">
+        antiRubbishSuggest = #{antirubbishsuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        emailType = #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mailheadmd5 != null">
+        mailHeadMd5 = #{mailheadmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="platforminfoId != null">
+        platformInfo_id = #{platforminfoId,jdbcType=INTEGER},
+      </if>
+      <if test="replyemailmessageid != null">
+        replyEmailMessageId = #{replyemailmessageid,jdbcType=VARCHAR},
+      </if>
+      <if test="targettitle != null">
+        targetTitle = #{targettitle,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentUrl != null">
+        attachment_url = #{attachmentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="emailcontent != null">
+        emailContent = #{emailcontent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.ReceiveEmail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="mail_uid" jdbcType="VARCHAR" property="mailUid" />
+    <result column="source_lang" jdbcType="SMALLINT" property="sourceLang" />
+    <result column="target_lang" jdbcType="SMALLINT" property="targetLang" />
+    <result column="to_email" jdbcType="VARCHAR" property="toEmail" />
+    <result column="cc_email" jdbcType="VARCHAR" property="ccEmail" />
+    <result column="bcc_email" jdbcType="VARCHAR" property="bccEmail" />
+    <result column="send_user" jdbcType="VARCHAR" property="sendUser" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="source_json" jdbcType="VARCHAR" property="sourceJson" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="target_finshtime" jdbcType="TIMESTAMP" property="targetFinshtime" />
+    <result column="is_translation" jdbcType="BIGINT" property="isTranslation" />
+    <result column="isread" jdbcType="BIGINT" property="isread" />
+    <result column="state_id" jdbcType="VARCHAR" property="stateId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="distinct_translate" jdbcType="INTEGER" property="distinctTranslate" />
+    <result column="re_translate" jdbcType="INTEGER" property="reTranslate" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="notranslate_reason" jdbcType="INTEGER" property="notranslateReason" />
+    <result column="retranslate_reason" jdbcType="VARCHAR" property="retranslateReason" />
+    <result column="sent_date" jdbcType="TIMESTAMP" property="sentDate" />
+    <result column="antiRubbishSuggest" jdbcType="VARCHAR" property="antirubbishsuggest" />
+    <result column="emailType" jdbcType="VARCHAR" property="emailtype" />
+    <result column="mailHeadMd5" jdbcType="VARCHAR" property="mailheadmd5" />
+    <result column="platformInfo_id" jdbcType="INTEGER" property="platforminfoId" />
+    <result column="replyEmailMessageId" jdbcType="VARCHAR" property="replyemailmessageid" />
+    <result column="targetTitle" jdbcType="VARCHAR" property="targettitle" />
+    <result column="attachment_url" jdbcType="VARCHAR" property="attachmentUrl" />
+    <result column="emailContent" jdbcType="VARCHAR" property="emailcontent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, title, mail_uid, source_lang, target_lang, to_email, cc_email, bcc_email, send_user, 
+    user_id, source_url, source_json, target_url, target_finshtime, is_translation, isread, 
+    state_id, create_time, distinct_translate, re_translate, update_time, notranslate_reason, 
+    retranslate_reason, sent_date, antiRubbishSuggest, emailType, mailHeadMd5, platformInfo_id, 
+    replyEmailMessageId, targetTitle, attachment_url, emailContent
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.ReceiveEmail">
+    insert into receive_email
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="mailUid != null">
+        mail_uid,
+      </if>
+      <if test="sourceLang != null">
+        source_lang,
+      </if>
+      <if test="targetLang != null">
+        target_lang,
+      </if>
+      <if test="toEmail != null">
+        to_email,
+      </if>
+      <if test="ccEmail != null">
+        cc_email,
+      </if>
+      <if test="bccEmail != null">
+        bcc_email,
+      </if>
+      <if test="sendUser != null">
+        send_user,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="sourceJson != null">
+        source_json,
+      </if>
+      <if test="targetUrl != null">
+        target_url,
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime,
+      </if>
+      <if test="isTranslation != null">
+        is_translation,
+      </if>
+      <if test="isread != null">
+        isread,
+      </if>
+      <if test="stateId != null">
+        state_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="distinctTranslate != null">
+        distinct_translate,
+      </if>
+      <if test="reTranslate != null">
+        re_translate,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="notranslateReason != null">
+        notranslate_reason,
+      </if>
+      <if test="retranslateReason != null">
+        retranslate_reason,
+      </if>
+      <if test="sentDate != null">
+        sent_date,
+      </if>
+      <if test="antirubbishsuggest != null">
+        antiRubbishSuggest,
+      </if>
+      <if test="emailtype != null">
+        emailType,
+      </if>
+      <if test="mailheadmd5 != null">
+        mailHeadMd5,
+      </if>
+      <if test="platforminfoId != null">
+        platformInfo_id,
+      </if>
+      <if test="replyemailmessageid != null">
+        replyEmailMessageId,
+      </if>
+      <if test="targettitle != null">
+        targetTitle,
+      </if>
+      <if test="attachmentUrl != null">
+        attachment_url,
+      </if>
+      <if test="emailcontent != null">
+        emailContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="mailUid != null">
+        #{mailUid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="toEmail != null">
+        #{toEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        #{ccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        #{bccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="sendUser != null">
+        #{sendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isTranslation != null">
+        #{isTranslation,jdbcType=BIGINT},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distinctTranslate != null">
+        #{distinctTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="reTranslate != null">
+        #{reTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notranslateReason != null">
+        #{notranslateReason,jdbcType=INTEGER},
+      </if>
+      <if test="retranslateReason != null">
+        #{retranslateReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sentDate != null">
+        #{sentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="antirubbishsuggest != null">
+        #{antirubbishsuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mailheadmd5 != null">
+        #{mailheadmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="platforminfoId != null">
+        #{platforminfoId,jdbcType=INTEGER},
+      </if>
+      <if test="replyemailmessageid != null">
+        #{replyemailmessageid,jdbcType=VARCHAR},
+      </if>
+      <if test="targettitle != null">
+        #{targettitle,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentUrl != null">
+        #{attachmentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="emailcontent != null">
+        #{emailcontent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.ReceiveEmail">
+    update receive_email
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="mailUid != null">
+        mail_uid = #{mailUid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        source_lang = #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        target_lang = #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="toEmail != null">
+        to_email = #{toEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        cc_email = #{ccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        bcc_email = #{bccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="sendUser != null">
+        send_user = #{sendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        source_json = #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        target_url = #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime = #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isTranslation != null">
+        is_translation = #{isTranslation,jdbcType=BIGINT},
+      </if>
+      <if test="isread != null">
+        isread = #{isread,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        state_id = #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distinctTranslate != null">
+        distinct_translate = #{distinctTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="reTranslate != null">
+        re_translate = #{reTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notranslateReason != null">
+        notranslate_reason = #{notranslateReason,jdbcType=INTEGER},
+      </if>
+      <if test="retranslateReason != null">
+        retranslate_reason = #{retranslateReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sentDate != null">
+        sent_date = #{sentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="antirubbishsuggest != null">
+        antiRubbishSuggest = #{antirubbishsuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        emailType = #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mailheadmd5 != null">
+        mailHeadMd5 = #{mailheadmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="platforminfoId != null">
+        platformInfo_id = #{platforminfoId,jdbcType=INTEGER},
+      </if>
+      <if test="replyemailmessageid != null">
+        replyEmailMessageId = #{replyemailmessageid,jdbcType=VARCHAR},
+      </if>
+      <if test="targettitle != null">
+        targetTitle = #{targettitle,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentUrl != null">
+        attachment_url = #{attachmentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="emailcontent != null">
+        emailContent = #{emailcontent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.ReceiveEmail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="mail_uid" jdbcType="VARCHAR" property="mailUid" />
+    <result column="source_lang" jdbcType="SMALLINT" property="sourceLang" />
+    <result column="target_lang" jdbcType="SMALLINT" property="targetLang" />
+    <result column="send_user" jdbcType="VARCHAR" property="sendUser" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="source_json" jdbcType="VARCHAR" property="sourceJson" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="target_finshtime" jdbcType="TIMESTAMP" property="targetFinshtime" />
+    <result column="is_translation" jdbcType="BIGINT" property="isTranslation" />
+    <result column="isread" jdbcType="BIGINT" property="isread" />
+    <result column="state_id" jdbcType="VARCHAR" property="stateId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="distinct_translate" jdbcType="INTEGER" property="distinctTranslate" />
+    <result column="re_translate" jdbcType="INTEGER" property="reTranslate" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="notranslate_reason" jdbcType="INTEGER" property="notranslateReason" />
+    <result column="retranslate_reason" jdbcType="VARCHAR" property="retranslateReason" />
+    <result column="sent_date" jdbcType="TIMESTAMP" property="sentDate" />
+    <result column="antiRubbishSuggest" jdbcType="VARCHAR" property="antirubbishsuggest" />
+    <result column="emailType" jdbcType="VARCHAR" property="emailtype" />
+    <result column="mailHeadMd5" jdbcType="VARCHAR" property="mailheadmd5" />
+    <result column="platformInfo_id" jdbcType="INTEGER" property="platforminfoId" />
+    <result column="replyEmailMessageId" jdbcType="VARCHAR" property="replyemailmessageid" />
+    <result column="targetTitle" jdbcType="VARCHAR" property="targettitle" />
+    <result column="emailContent" jdbcType="VARCHAR" property="emailcontent" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cbec.model.ReceiveEmailWithBLOBs">
+    <result column="to_email" jdbcType="LONGVARCHAR" property="toEmail" />
+    <result column="cc_email" jdbcType="LONGVARCHAR" property="ccEmail" />
+    <result column="bcc_email" jdbcType="LONGVARCHAR" property="bccEmail" />
+    <result column="attachment_url" jdbcType="LONGVARCHAR" property="attachmentUrl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, title, mail_uid, source_lang, target_lang, send_user, user_id, source_url, source_json, 
+    target_url, target_finshtime, is_translation, isread, state_id, create_time, distinct_translate, 
+    re_translate, update_time, notranslate_reason, retranslate_reason, sent_date, antiRubbishSuggest, 
+    emailType, mailHeadMd5, platformInfo_id, replyEmailMessageId, targetTitle, emailContent
+  </sql>
+  <sql id="Blob_Column_List">
+    to_email, cc_email, bcc_email, attachment_url
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.ReceiveEmailWithBLOBs">
+    insert into receive_email
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="mailUid != null">
+        mail_uid,
+      </if>
+      <if test="sourceLang != null">
+        source_lang,
+      </if>
+      <if test="targetLang != null">
+        target_lang,
+      </if>
+      <if test="sendUser != null">
+        send_user,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="sourceJson != null">
+        source_json,
+      </if>
+      <if test="targetUrl != null">
+        target_url,
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime,
+      </if>
+      <if test="isTranslation != null">
+        is_translation,
+      </if>
+      <if test="isread != null">
+        isread,
+      </if>
+      <if test="stateId != null">
+        state_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="distinctTranslate != null">
+        distinct_translate,
+      </if>
+      <if test="reTranslate != null">
+        re_translate,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="notranslateReason != null">
+        notranslate_reason,
+      </if>
+      <if test="retranslateReason != null">
+        retranslate_reason,
+      </if>
+      <if test="sentDate != null">
+        sent_date,
+      </if>
+      <if test="antirubbishsuggest != null">
+        antiRubbishSuggest,
+      </if>
+      <if test="emailtype != null">
+        emailType,
+      </if>
+      <if test="mailheadmd5 != null">
+        mailHeadMd5,
+      </if>
+      <if test="platforminfoId != null">
+        platformInfo_id,
+      </if>
+      <if test="replyemailmessageid != null">
+        replyEmailMessageId,
+      </if>
+      <if test="targettitle != null">
+        targetTitle,
+      </if>
+      <if test="emailcontent != null">
+        emailContent,
+      </if>
+      <if test="toEmail != null">
+        to_email,
+      </if>
+      <if test="ccEmail != null">
+        cc_email,
+      </if>
+      <if test="bccEmail != null">
+        bcc_email,
+      </if>
+      <if test="attachmentUrl != null">
+        attachment_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="mailUid != null">
+        #{mailUid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="sendUser != null">
+        #{sendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isTranslation != null">
+        #{isTranslation,jdbcType=BIGINT},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distinctTranslate != null">
+        #{distinctTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="reTranslate != null">
+        #{reTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notranslateReason != null">
+        #{notranslateReason,jdbcType=INTEGER},
+      </if>
+      <if test="retranslateReason != null">
+        #{retranslateReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sentDate != null">
+        #{sentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="antirubbishsuggest != null">
+        #{antirubbishsuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mailheadmd5 != null">
+        #{mailheadmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="platforminfoId != null">
+        #{platforminfoId,jdbcType=INTEGER},
+      </if>
+      <if test="replyemailmessageid != null">
+        #{replyemailmessageid,jdbcType=VARCHAR},
+      </if>
+      <if test="targettitle != null">
+        #{targettitle,jdbcType=VARCHAR},
+      </if>
+      <if test="emailcontent != null">
+        #{emailcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="toEmail != null">
+        #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="attachmentUrl != null">
+        #{attachmentUrl,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.ReceiveEmailWithBLOBs">
+    update receive_email
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="mailUid != null">
+        mail_uid = #{mailUid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        source_lang = #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        target_lang = #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="sendUser != null">
+        send_user = #{sendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        source_json = #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        target_url = #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime = #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isTranslation != null">
+        is_translation = #{isTranslation,jdbcType=BIGINT},
+      </if>
+      <if test="isread != null">
+        isread = #{isread,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        state_id = #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distinctTranslate != null">
+        distinct_translate = #{distinctTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="reTranslate != null">
+        re_translate = #{reTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notranslateReason != null">
+        notranslate_reason = #{notranslateReason,jdbcType=INTEGER},
+      </if>
+      <if test="retranslateReason != null">
+        retranslate_reason = #{retranslateReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sentDate != null">
+        sent_date = #{sentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="antirubbishsuggest != null">
+        antiRubbishSuggest = #{antirubbishsuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        emailType = #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mailheadmd5 != null">
+        mailHeadMd5 = #{mailheadmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="platforminfoId != null">
+        platformInfo_id = #{platforminfoId,jdbcType=INTEGER},
+      </if>
+      <if test="replyemailmessageid != null">
+        replyEmailMessageId = #{replyemailmessageid,jdbcType=VARCHAR},
+      </if>
+      <if test="targettitle != null">
+        targetTitle = #{targettitle,jdbcType=VARCHAR},
+      </if>
+      <if test="emailcontent != null">
+        emailContent = #{emailcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="toEmail != null">
+        to_email = #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        cc_email = #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        bcc_email = #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="attachmentUrl != null">
+        attachment_url = #{attachmentUrl,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.ReceiveEmail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="mail_uid" jdbcType="VARCHAR" property="mailUid" />
+    <result column="source_lang" jdbcType="SMALLINT" property="sourceLang" />
+    <result column="target_lang" jdbcType="SMALLINT" property="targetLang" />
+    <result column="send_user" jdbcType="VARCHAR" property="sendUser" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="source_json" jdbcType="VARCHAR" property="sourceJson" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="target_finshtime" jdbcType="TIMESTAMP" property="targetFinshtime" />
+    <result column="is_translation" jdbcType="BIGINT" property="isTranslation" />
+    <result column="isread" jdbcType="BIGINT" property="isread" />
+    <result column="state_id" jdbcType="VARCHAR" property="stateId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="distinct_translate" jdbcType="INTEGER" property="distinctTranslate" />
+    <result column="re_translate" jdbcType="INTEGER" property="reTranslate" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="notranslate_reason" jdbcType="INTEGER" property="notranslateReason" />
+    <result column="retranslate_reason" jdbcType="VARCHAR" property="retranslateReason" />
+    <result column="sent_date" jdbcType="TIMESTAMP" property="sentDate" />
+    <result column="antiRubbishSuggest" jdbcType="VARCHAR" property="antirubbishsuggest" />
+    <result column="emailType" jdbcType="VARCHAR" property="emailtype" />
+    <result column="mailHeadMd5" jdbcType="VARCHAR" property="mailheadmd5" />
+    <result column="platformInfo_id" jdbcType="INTEGER" property="platforminfoId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cbec.model.ReceiveEmailWithBLOBs">
+    <result column="title" jdbcType="LONGVARCHAR" property="title" />
+    <result column="to_email" jdbcType="LONGVARCHAR" property="toEmail" />
+    <result column="cc_email" jdbcType="LONGVARCHAR" property="ccEmail" />
+    <result column="bcc_email" jdbcType="LONGVARCHAR" property="bccEmail" />
+    <result column="replyEmailMessageId" jdbcType="LONGVARCHAR" property="replyemailmessageid" />
+    <result column="targetTitle" jdbcType="LONGVARCHAR" property="targettitle" />
+    <result column="attachment_url" jdbcType="LONGVARCHAR" property="attachmentUrl" />
+    <result column="emailContent" jdbcType="LONGVARCHAR" property="emailcontent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, mail_uid, source_lang, target_lang, send_user, user_id, source_url, source_json, 
+    target_url, target_finshtime, is_translation, isread, state_id, create_time, distinct_translate, 
+    re_translate, update_time, notranslate_reason, retranslate_reason, sent_date, antiRubbishSuggest, 
+    emailType, mailHeadMd5, platformInfo_id
+  </sql>
+  <sql id="Blob_Column_List">
+    title, to_email, cc_email, bcc_email, replyEmailMessageId, targetTitle, attachment_url, 
+    emailContent
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.ReceiveEmailWithBLOBs">
+    insert into receive_email
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="mailUid != null">
+        mail_uid,
+      </if>
+      <if test="sourceLang != null">
+        source_lang,
+      </if>
+      <if test="targetLang != null">
+        target_lang,
+      </if>
+      <if test="sendUser != null">
+        send_user,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="sourceJson != null">
+        source_json,
+      </if>
+      <if test="targetUrl != null">
+        target_url,
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime,
+      </if>
+      <if test="isTranslation != null">
+        is_translation,
+      </if>
+      <if test="isread != null">
+        isread,
+      </if>
+      <if test="stateId != null">
+        state_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="distinctTranslate != null">
+        distinct_translate,
+      </if>
+      <if test="reTranslate != null">
+        re_translate,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="notranslateReason != null">
+        notranslate_reason,
+      </if>
+      <if test="retranslateReason != null">
+        retranslate_reason,
+      </if>
+      <if test="sentDate != null">
+        sent_date,
+      </if>
+      <if test="antirubbishsuggest != null">
+        antiRubbishSuggest,
+      </if>
+      <if test="emailtype != null">
+        emailType,
+      </if>
+      <if test="mailheadmd5 != null">
+        mailHeadMd5,
+      </if>
+      <if test="platforminfoId != null">
+        platformInfo_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="toEmail != null">
+        to_email,
+      </if>
+      <if test="ccEmail != null">
+        cc_email,
+      </if>
+      <if test="bccEmail != null">
+        bcc_email,
+      </if>
+      <if test="replyemailmessageid != null">
+        replyEmailMessageId,
+      </if>
+      <if test="targettitle != null">
+        targetTitle,
+      </if>
+      <if test="attachmentUrl != null">
+        attachment_url,
+      </if>
+      <if test="emailcontent != null">
+        emailContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mailUid != null">
+        #{mailUid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="sendUser != null">
+        #{sendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isTranslation != null">
+        #{isTranslation,jdbcType=BIGINT},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distinctTranslate != null">
+        #{distinctTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="reTranslate != null">
+        #{reTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notranslateReason != null">
+        #{notranslateReason,jdbcType=INTEGER},
+      </if>
+      <if test="retranslateReason != null">
+        #{retranslateReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sentDate != null">
+        #{sentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="antirubbishsuggest != null">
+        #{antirubbishsuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mailheadmd5 != null">
+        #{mailheadmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="platforminfoId != null">
+        #{platforminfoId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="toEmail != null">
+        #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="replyemailmessageid != null">
+        #{replyemailmessageid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="targettitle != null">
+        #{targettitle,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="attachmentUrl != null">
+        #{attachmentUrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="emailcontent != null">
+        #{emailcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.ReceiveEmailWithBLOBs">
+    update receive_email
+    <set>
+      <if test="mailUid != null">
+        mail_uid = #{mailUid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        source_lang = #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        target_lang = #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="sendUser != null">
+        send_user = #{sendUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        source_json = #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        target_url = #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime = #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isTranslation != null">
+        is_translation = #{isTranslation,jdbcType=BIGINT},
+      </if>
+      <if test="isread != null">
+        isread = #{isread,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        state_id = #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="distinctTranslate != null">
+        distinct_translate = #{distinctTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="reTranslate != null">
+        re_translate = #{reTranslate,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notranslateReason != null">
+        notranslate_reason = #{notranslateReason,jdbcType=INTEGER},
+      </if>
+      <if test="retranslateReason != null">
+        retranslate_reason = #{retranslateReason,jdbcType=VARCHAR},
+      </if>
+      <if test="sentDate != null">
+        sent_date = #{sentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="antirubbishsuggest != null">
+        antiRubbishSuggest = #{antirubbishsuggest,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        emailType = #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mailheadmd5 != null">
+        mailHeadMd5 = #{mailheadmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="platforminfoId != null">
+        platformInfo_id = #{platforminfoId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="toEmail != null">
+        to_email = #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        cc_email = #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        bcc_email = #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="replyemailmessageid != null">
+        replyEmailMessageId = #{replyemailmessageid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="targettitle != null">
+        targetTitle = #{targettitle,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="attachmentUrl != null">
+        attachment_url = #{attachmentUrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="emailcontent != null">
+        emailContent = #{emailcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cbec.dao.SendEmailMapper">
+  <resultMap id="BaseResultMap" type="com.cbec.model.SendEmail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="source_lang" jdbcType="SMALLINT" property="sourceLang" />
+    <result column="target_lang" jdbcType="SMALLINT" property="targetLang" />
+    <result column="client_type" jdbcType="BIGINT" property="clientType" />
+    <result column="to_email" jdbcType="VARCHAR" property="toEmail" />
+    <result column="cc_email" jdbcType="VARCHAR" property="ccEmail" />
+    <result column="bcc_email" jdbcType="VARCHAR" property="bccEmail" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="source_json" jdbcType="VARCHAR" property="sourceJson" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="target_finshtime" jdbcType="TIMESTAMP" property="targetFinshtime" />
+    <result column="nassoneshow" jdbcType="BIGINT" property="nassoneshow" />
+    <result column="state_id" jdbcType="VARCHAR" property="stateId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="messageIdRead" jdbcType="BIGINT" property="messageidread" />
+    <result column="message_id" jdbcType="VARCHAR" property="messageId" />
+    <result column="emailType" jdbcType="VARCHAR" property="emailtype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, title, source_lang, target_lang, client_type, to_email, cc_email, bcc_email, 
+    user_id, source_url, source_json, target_url, target_finshtime, nassoneshow, state_id, 
+    create_time, messageIdRead, message_id, emailType
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.SendEmail">
+    insert into send_email
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="sourceLang != null">
+        source_lang,
+      </if>
+      <if test="targetLang != null">
+        target_lang,
+      </if>
+      <if test="clientType != null">
+        client_type,
+      </if>
+      <if test="toEmail != null">
+        to_email,
+      </if>
+      <if test="ccEmail != null">
+        cc_email,
+      </if>
+      <if test="bccEmail != null">
+        bcc_email,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="sourceJson != null">
+        source_json,
+      </if>
+      <if test="targetUrl != null">
+        target_url,
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime,
+      </if>
+      <if test="nassoneshow != null">
+        nassoneshow,
+      </if>
+      <if test="stateId != null">
+        state_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="messageidread != null">
+        messageIdRead,
+      </if>
+      <if test="messageId != null">
+        message_id,
+      </if>
+      <if test="emailtype != null">
+        emailType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="clientType != null">
+        #{clientType,jdbcType=BIGINT},
+      </if>
+      <if test="toEmail != null">
+        #{toEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        #{ccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        #{bccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nassoneshow != null">
+        #{nassoneshow,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageidread != null">
+        #{messageidread,jdbcType=BIGINT},
+      </if>
+      <if test="messageId != null">
+        #{messageId,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        #{emailtype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.SendEmail">
+    update send_email
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        source_lang = #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        target_lang = #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="clientType != null">
+        client_type = #{clientType,jdbcType=BIGINT},
+      </if>
+      <if test="toEmail != null">
+        to_email = #{toEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        cc_email = #{ccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        bcc_email = #{bccEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        source_json = #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        target_url = #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime = #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nassoneshow != null">
+        nassoneshow = #{nassoneshow,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        state_id = #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageidread != null">
+        messageIdRead = #{messageidread,jdbcType=BIGINT},
+      </if>
+      <if test="messageId != null">
+        message_id = #{messageId,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        emailType = #{emailtype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.SendEmail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="source_lang" jdbcType="SMALLINT" property="sourceLang" />
+    <result column="target_lang" jdbcType="SMALLINT" property="targetLang" />
+    <result column="client_type" jdbcType="BIGINT" property="clientType" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="source_json" jdbcType="VARCHAR" property="sourceJson" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="target_finshtime" jdbcType="TIMESTAMP" property="targetFinshtime" />
+    <result column="nassoneshow" jdbcType="BIGINT" property="nassoneshow" />
+    <result column="state_id" jdbcType="VARCHAR" property="stateId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="messageIdRead" jdbcType="BIGINT" property="messageidread" />
+    <result column="message_id" jdbcType="VARCHAR" property="messageId" />
+    <result column="emailType" jdbcType="VARCHAR" property="emailtype" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cbec.model.SendEmailWithBLOBs">
+    <result column="to_email" jdbcType="LONGVARCHAR" property="toEmail" />
+    <result column="cc_email" jdbcType="LONGVARCHAR" property="ccEmail" />
+    <result column="bcc_email" jdbcType="LONGVARCHAR" property="bccEmail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, title, source_lang, target_lang, client_type, user_id, source_url, source_json, 
+    target_url, target_finshtime, nassoneshow, state_id, create_time, messageIdRead, 
+    message_id, emailType
+  </sql>
+  <sql id="Blob_Column_List">
+    to_email, cc_email, bcc_email
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.SendEmailWithBLOBs">
+    insert into send_email
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="sourceLang != null">
+        source_lang,
+      </if>
+      <if test="targetLang != null">
+        target_lang,
+      </if>
+      <if test="clientType != null">
+        client_type,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="sourceJson != null">
+        source_json,
+      </if>
+      <if test="targetUrl != null">
+        target_url,
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime,
+      </if>
+      <if test="nassoneshow != null">
+        nassoneshow,
+      </if>
+      <if test="stateId != null">
+        state_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="messageidread != null">
+        messageIdRead,
+      </if>
+      <if test="messageId != null">
+        message_id,
+      </if>
+      <if test="emailtype != null">
+        emailType,
+      </if>
+      <if test="toEmail != null">
+        to_email,
+      </if>
+      <if test="ccEmail != null">
+        cc_email,
+      </if>
+      <if test="bccEmail != null">
+        bcc_email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="clientType != null">
+        #{clientType,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nassoneshow != null">
+        #{nassoneshow,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageidread != null">
+        #{messageidread,jdbcType=BIGINT},
+      </if>
+      <if test="messageId != null">
+        #{messageId,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="toEmail != null">
+        #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.SendEmailWithBLOBs">
+    update send_email
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        source_lang = #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        target_lang = #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="clientType != null">
+        client_type = #{clientType,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        source_json = #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        target_url = #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime = #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nassoneshow != null">
+        nassoneshow = #{nassoneshow,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        state_id = #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageidread != null">
+        messageIdRead = #{messageidread,jdbcType=BIGINT},
+      </if>
+      <if test="messageId != null">
+        message_id = #{messageId,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        emailType = #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="toEmail != null">
+        to_email = #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        cc_email = #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        bcc_email = #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.SendEmail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="source_lang" jdbcType="SMALLINT" property="sourceLang" />
+    <result column="target_lang" jdbcType="SMALLINT" property="targetLang" />
+    <result column="client_type" jdbcType="BIGINT" property="clientType" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="source_json" jdbcType="VARCHAR" property="sourceJson" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="target_finshtime" jdbcType="TIMESTAMP" property="targetFinshtime" />
+    <result column="nassoneshow" jdbcType="BIGINT" property="nassoneshow" />
+    <result column="state_id" jdbcType="VARCHAR" property="stateId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="messageIdRead" jdbcType="BIGINT" property="messageidread" />
+    <result column="message_id" jdbcType="VARCHAR" property="messageId" />
+    <result column="emailType" jdbcType="VARCHAR" property="emailtype" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cbec.model.SendEmailWithBLOBs">
+    <result column="to_email" jdbcType="LONGVARCHAR" property="toEmail" />
+    <result column="cc_email" jdbcType="LONGVARCHAR" property="ccEmail" />
+    <result column="bcc_email" jdbcType="LONGVARCHAR" property="bccEmail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, title, source_lang, target_lang, client_type, user_id, source_url, source_json, 
+    target_url, target_finshtime, nassoneshow, state_id, create_time, messageIdRead, 
+    message_id, emailType
+  </sql>
+  <sql id="Blob_Column_List">
+    to_email, cc_email, bcc_email
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.SendEmailWithBLOBs">
+    insert into send_email
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="sourceLang != null">
+        source_lang,
+      </if>
+      <if test="targetLang != null">
+        target_lang,
+      </if>
+      <if test="clientType != null">
+        client_type,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="sourceJson != null">
+        source_json,
+      </if>
+      <if test="targetUrl != null">
+        target_url,
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime,
+      </if>
+      <if test="nassoneshow != null">
+        nassoneshow,
+      </if>
+      <if test="stateId != null">
+        state_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="messageidread != null">
+        messageIdRead,
+      </if>
+      <if test="messageId != null">
+        message_id,
+      </if>
+      <if test="emailtype != null">
+        emailType,
+      </if>
+      <if test="toEmail != null">
+        to_email,
+      </if>
+      <if test="ccEmail != null">
+        cc_email,
+      </if>
+      <if test="bccEmail != null">
+        bcc_email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="clientType != null">
+        #{clientType,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nassoneshow != null">
+        #{nassoneshow,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageidread != null">
+        #{messageidread,jdbcType=BIGINT},
+      </if>
+      <if test="messageId != null">
+        #{messageId,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="toEmail != null">
+        #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.SendEmailWithBLOBs">
+    update send_email
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        source_lang = #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        target_lang = #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="clientType != null">
+        client_type = #{clientType,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        source_json = #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        target_url = #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime = #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nassoneshow != null">
+        nassoneshow = #{nassoneshow,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        state_id = #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageidread != null">
+        messageIdRead = #{messageidread,jdbcType=BIGINT},
+      </if>
+      <if test="messageId != null">
+        message_id = #{messageId,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        emailType = #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="toEmail != null">
+        to_email = #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        cc_email = #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        bcc_email = #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.SendEmail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="source_lang" jdbcType="SMALLINT" property="sourceLang" />
+    <result column="target_lang" jdbcType="SMALLINT" property="targetLang" />
+    <result column="client_type" jdbcType="BIGINT" property="clientType" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="source_json" jdbcType="VARCHAR" property="sourceJson" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="target_finshtime" jdbcType="TIMESTAMP" property="targetFinshtime" />
+    <result column="nassoneshow" jdbcType="BIGINT" property="nassoneshow" />
+    <result column="state_id" jdbcType="VARCHAR" property="stateId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="messageIdRead" jdbcType="BIGINT" property="messageidread" />
+    <result column="message_id" jdbcType="VARCHAR" property="messageId" />
+    <result column="emailType" jdbcType="VARCHAR" property="emailtype" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cbec.model.SendEmailWithBLOBs">
+    <result column="to_email" jdbcType="LONGVARCHAR" property="toEmail" />
+    <result column="cc_email" jdbcType="LONGVARCHAR" property="ccEmail" />
+    <result column="bcc_email" jdbcType="LONGVARCHAR" property="bccEmail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, title, source_lang, target_lang, client_type, user_id, source_url, source_json, 
+    target_url, target_finshtime, nassoneshow, state_id, create_time, messageIdRead, 
+    message_id, emailType
+  </sql>
+  <sql id="Blob_Column_List">
+    to_email, cc_email, bcc_email
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.SendEmailWithBLOBs">
+    insert into send_email
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="sourceLang != null">
+        source_lang,
+      </if>
+      <if test="targetLang != null">
+        target_lang,
+      </if>
+      <if test="clientType != null">
+        client_type,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="sourceJson != null">
+        source_json,
+      </if>
+      <if test="targetUrl != null">
+        target_url,
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime,
+      </if>
+      <if test="nassoneshow != null">
+        nassoneshow,
+      </if>
+      <if test="stateId != null">
+        state_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="messageidread != null">
+        messageIdRead,
+      </if>
+      <if test="messageId != null">
+        message_id,
+      </if>
+      <if test="emailtype != null">
+        emailType,
+      </if>
+      <if test="toEmail != null">
+        to_email,
+      </if>
+      <if test="ccEmail != null">
+        cc_email,
+      </if>
+      <if test="bccEmail != null">
+        bcc_email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="clientType != null">
+        #{clientType,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nassoneshow != null">
+        #{nassoneshow,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageidread != null">
+        #{messageidread,jdbcType=BIGINT},
+      </if>
+      <if test="messageId != null">
+        #{messageId,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="toEmail != null">
+        #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.SendEmailWithBLOBs">
+    update send_email
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        source_lang = #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        target_lang = #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="clientType != null">
+        client_type = #{clientType,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        source_json = #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        target_url = #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime = #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nassoneshow != null">
+        nassoneshow = #{nassoneshow,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        state_id = #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageidread != null">
+        messageIdRead = #{messageidread,jdbcType=BIGINT},
+      </if>
+      <if test="messageId != null">
+        message_id = #{messageId,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        emailType = #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="toEmail != null">
+        to_email = #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        cc_email = #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        bcc_email = #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.SendEmail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="source_lang" jdbcType="SMALLINT" property="sourceLang" />
+    <result column="target_lang" jdbcType="SMALLINT" property="targetLang" />
+    <result column="client_type" jdbcType="BIGINT" property="clientType" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="source_url" jdbcType="VARCHAR" property="sourceUrl" />
+    <result column="source_json" jdbcType="VARCHAR" property="sourceJson" />
+    <result column="target_url" jdbcType="VARCHAR" property="targetUrl" />
+    <result column="target_finshtime" jdbcType="TIMESTAMP" property="targetFinshtime" />
+    <result column="nassoneshow" jdbcType="BIGINT" property="nassoneshow" />
+    <result column="state_id" jdbcType="VARCHAR" property="stateId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="messageIdRead" jdbcType="BIGINT" property="messageidread" />
+    <result column="message_id" jdbcType="VARCHAR" property="messageId" />
+    <result column="emailType" jdbcType="VARCHAR" property="emailtype" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cbec.model.SendEmailWithBLOBs">
+    <result column="to_email" jdbcType="LONGVARCHAR" property="toEmail" />
+    <result column="cc_email" jdbcType="LONGVARCHAR" property="ccEmail" />
+    <result column="bcc_email" jdbcType="LONGVARCHAR" property="bccEmail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, title, source_lang, target_lang, client_type, user_id, source_url, source_json, 
+    target_url, target_finshtime, nassoneshow, state_id, create_time, messageIdRead, 
+    message_id, emailType
+  </sql>
+  <sql id="Blob_Column_List">
+    to_email, cc_email, bcc_email
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.SendEmailWithBLOBs">
+    insert into send_email
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="sourceLang != null">
+        source_lang,
+      </if>
+      <if test="targetLang != null">
+        target_lang,
+      </if>
+      <if test="clientType != null">
+        client_type,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="sourceUrl != null">
+        source_url,
+      </if>
+      <if test="sourceJson != null">
+        source_json,
+      </if>
+      <if test="targetUrl != null">
+        target_url,
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime,
+      </if>
+      <if test="nassoneshow != null">
+        nassoneshow,
+      </if>
+      <if test="stateId != null">
+        state_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="messageidread != null">
+        messageIdRead,
+      </if>
+      <if test="messageId != null">
+        message_id,
+      </if>
+      <if test="emailtype != null">
+        emailType,
+      </if>
+      <if test="toEmail != null">
+        to_email,
+      </if>
+      <if test="ccEmail != null">
+        cc_email,
+      </if>
+      <if test="bccEmail != null">
+        bcc_email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="clientType != null">
+        #{clientType,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nassoneshow != null">
+        #{nassoneshow,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageidread != null">
+        #{messageidread,jdbcType=BIGINT},
+      </if>
+      <if test="messageId != null">
+        #{messageId,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="toEmail != null">
+        #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.SendEmailWithBLOBs">
+    update send_email
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceLang != null">
+        source_lang = #{sourceLang,jdbcType=SMALLINT},
+      </if>
+      <if test="targetLang != null">
+        target_lang = #{targetLang,jdbcType=SMALLINT},
+      </if>
+      <if test="clientType != null">
+        client_type = #{clientType,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceUrl != null">
+        source_url = #{sourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceJson != null">
+        source_json = #{sourceJson,jdbcType=VARCHAR},
+      </if>
+      <if test="targetUrl != null">
+        target_url = #{targetUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="targetFinshtime != null">
+        target_finshtime = #{targetFinshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nassoneshow != null">
+        nassoneshow = #{nassoneshow,jdbcType=BIGINT},
+      </if>
+      <if test="stateId != null">
+        state_id = #{stateId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="messageidread != null">
+        messageIdRead = #{messageidread,jdbcType=BIGINT},
+      </if>
+      <if test="messageId != null">
+        message_id = #{messageId,jdbcType=VARCHAR},
+      </if>
+      <if test="emailtype != null">
+        emailType = #{emailtype,jdbcType=VARCHAR},
+      </if>
+      <if test="toEmail != null">
+        to_email = #{toEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="ccEmail != null">
+        cc_email = #{ccEmail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="bccEmail != null">
+        bcc_email = #{bccEmail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,1738 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cbec.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.cbec.model.UserInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="smtp_host" jdbcType="VARCHAR" property="smtpHost" />
+    <result column="smtp_username" jdbcType="VARCHAR" property="smtpUsername" />
+    <result column="smtp_password" jdbcType="VARCHAR" property="smtpPassword" />
+    <result column="smtp_useremail" jdbcType="VARCHAR" property="smtpUseremail" />
+    <result column="smtp_port" jdbcType="SMALLINT" property="smtpPort" />
+    <result column="smtp_auth" jdbcType="BIGINT" property="smtpAuth" />
+    <result column="smtp_use_ssl" jdbcType="TINYINT" property="smtpUseSsl" />
+    <result column="lang_id" jdbcType="SMALLINT" property="langId" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="mail_lasttime" jdbcType="TIMESTAMP" property="mailLasttime" />
+    <result column="pop3_host" jdbcType="VARCHAR" property="pop3Host" />
+    <result column="pop3_port" jdbcType="INTEGER" property="pop3Port" />
+    <result column="pop3_use_ssl" jdbcType="BIGINT" property="pop3UseSsl" />
+    <result column="pop3_auth" jdbcType="BIGINT" property="pop3Auth" />
+    <result column="server_connectivity" jdbcType="BIGINT" property="serverConnectivity" />
+    <result column="activate_state" jdbcType="BIGINT" property="activateState" />
+    <result column="activate_time" jdbcType="TIMESTAMP" property="activateTime" />
+    <result column="service_state" jdbcType="BIGINT" property="serviceState" />
+    <result column="receive_protocal" jdbcType="TINYINT" property="receiveProtocal" />
+    <result column="receive_mailType" jdbcType="BIGINT" property="receiveMailtype" />
+    <result column="server_verify" jdbcType="TINYINT" property="serverVerify" />
+    <result column="reserved_field1" jdbcType="VARCHAR" property="reservedField1" />
+    <result column="reserved_field2" jdbcType="VARCHAR" property="reservedField2" />
+    <result column="reserved_field3" jdbcType="VARCHAR" property="reservedField3" />
+    <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+    <result column="alarm" jdbcType="VARCHAR" property="alarm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, smtp_host, smtp_username, smtp_password, smtp_useremail, smtp_port, smtp_auth, 
+    smtp_use_ssl, lang_id, register_time, mail_lasttime, pop3_host, pop3_port, pop3_use_ssl, 
+    pop3_auth, server_connectivity, activate_state, activate_time, service_state, receive_protocal, 
+    receive_mailType, server_verify, reserved_field1, reserved_field2, reserved_field3, 
+    company_id, alarm
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="smtpHost != null">
+        smtp_host,
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username,
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password,
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail,
+      </if>
+      <if test="smtpPort != null">
+        smtp_port,
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth,
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl,
+      </if>
+      <if test="langId != null">
+        lang_id,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime,
+      </if>
+      <if test="pop3Host != null">
+        pop3_host,
+      </if>
+      <if test="pop3Port != null">
+        pop3_port,
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl,
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth,
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity,
+      </if>
+      <if test="activateState != null">
+        activate_state,
+      </if>
+      <if test="activateTime != null">
+        activate_time,
+      </if>
+      <if test="serviceState != null">
+        service_state,
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal,
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType,
+      </if>
+      <if test="serverVerify != null">
+        server_verify,
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1,
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2,
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="alarm != null">
+        alarm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpHost != null">
+        #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        #{alarm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.UserInfo">
+    update user_info
+    <set>
+      <if test="smtpHost != null">
+        smtp_host = #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username = #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password = #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail = #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        smtp_port = #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth = #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl = #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        lang_id = #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime = #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        pop3_host = #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        pop3_port = #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl = #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth = #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity = #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        activate_state = #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        activate_time = #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        service_state = #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal = #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType = #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        server_verify = #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1 = #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2 = #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3 = #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        alarm = #{alarm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.UserInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="smtp_host" jdbcType="VARCHAR" property="smtpHost" />
+    <result column="smtp_username" jdbcType="VARCHAR" property="smtpUsername" />
+    <result column="smtp_password" jdbcType="VARCHAR" property="smtpPassword" />
+    <result column="smtp_useremail" jdbcType="VARCHAR" property="smtpUseremail" />
+    <result column="smtp_port" jdbcType="SMALLINT" property="smtpPort" />
+    <result column="smtp_auth" jdbcType="BIGINT" property="smtpAuth" />
+    <result column="smtp_use_ssl" jdbcType="TINYINT" property="smtpUseSsl" />
+    <result column="lang_id" jdbcType="SMALLINT" property="langId" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="mail_lasttime" jdbcType="TIMESTAMP" property="mailLasttime" />
+    <result column="pop3_host" jdbcType="VARCHAR" property="pop3Host" />
+    <result column="pop3_port" jdbcType="INTEGER" property="pop3Port" />
+    <result column="pop3_use_ssl" jdbcType="BIGINT" property="pop3UseSsl" />
+    <result column="pop3_auth" jdbcType="BIGINT" property="pop3Auth" />
+    <result column="server_connectivity" jdbcType="BIGINT" property="serverConnectivity" />
+    <result column="activate_state" jdbcType="BIGINT" property="activateState" />
+    <result column="activate_time" jdbcType="TIMESTAMP" property="activateTime" />
+    <result column="service_state" jdbcType="BIGINT" property="serviceState" />
+    <result column="receive_protocal" jdbcType="TINYINT" property="receiveProtocal" />
+    <result column="receive_mailType" jdbcType="BIGINT" property="receiveMailtype" />
+    <result column="server_verify" jdbcType="TINYINT" property="serverVerify" />
+    <result column="reserved_field1" jdbcType="VARCHAR" property="reservedField1" />
+    <result column="reserved_field2" jdbcType="VARCHAR" property="reservedField2" />
+    <result column="reserved_field3" jdbcType="VARCHAR" property="reservedField3" />
+    <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+    <result column="alarm" jdbcType="VARCHAR" property="alarm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, smtp_host, smtp_username, smtp_password, smtp_useremail, smtp_port, smtp_auth, 
+    smtp_use_ssl, lang_id, register_time, mail_lasttime, pop3_host, pop3_port, pop3_use_ssl, 
+    pop3_auth, server_connectivity, activate_state, activate_time, service_state, receive_protocal, 
+    receive_mailType, server_verify, reserved_field1, reserved_field2, reserved_field3, 
+    company_id, alarm
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="smtpHost != null">
+        smtp_host,
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username,
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password,
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail,
+      </if>
+      <if test="smtpPort != null">
+        smtp_port,
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth,
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl,
+      </if>
+      <if test="langId != null">
+        lang_id,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime,
+      </if>
+      <if test="pop3Host != null">
+        pop3_host,
+      </if>
+      <if test="pop3Port != null">
+        pop3_port,
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl,
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth,
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity,
+      </if>
+      <if test="activateState != null">
+        activate_state,
+      </if>
+      <if test="activateTime != null">
+        activate_time,
+      </if>
+      <if test="serviceState != null">
+        service_state,
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal,
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType,
+      </if>
+      <if test="serverVerify != null">
+        server_verify,
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1,
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2,
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="alarm != null">
+        alarm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpHost != null">
+        #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        #{alarm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.UserInfo">
+    update user_info
+    <set>
+      <if test="smtpHost != null">
+        smtp_host = #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username = #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password = #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail = #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        smtp_port = #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth = #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl = #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        lang_id = #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime = #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        pop3_host = #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        pop3_port = #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl = #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth = #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity = #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        activate_state = #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        activate_time = #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        service_state = #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal = #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType = #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        server_verify = #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1 = #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2 = #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3 = #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        alarm = #{alarm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.UserInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="smtp_host" jdbcType="VARCHAR" property="smtpHost" />
+    <result column="smtp_username" jdbcType="VARCHAR" property="smtpUsername" />
+    <result column="smtp_password" jdbcType="VARCHAR" property="smtpPassword" />
+    <result column="smtp_useremail" jdbcType="VARCHAR" property="smtpUseremail" />
+    <result column="smtp_port" jdbcType="SMALLINT" property="smtpPort" />
+    <result column="smtp_auth" jdbcType="BIGINT" property="smtpAuth" />
+    <result column="smtp_use_ssl" jdbcType="TINYINT" property="smtpUseSsl" />
+    <result column="lang_id" jdbcType="SMALLINT" property="langId" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="mail_lasttime" jdbcType="TIMESTAMP" property="mailLasttime" />
+    <result column="pop3_host" jdbcType="VARCHAR" property="pop3Host" />
+    <result column="pop3_port" jdbcType="INTEGER" property="pop3Port" />
+    <result column="pop3_use_ssl" jdbcType="BIGINT" property="pop3UseSsl" />
+    <result column="pop3_auth" jdbcType="BIGINT" property="pop3Auth" />
+    <result column="server_connectivity" jdbcType="BIGINT" property="serverConnectivity" />
+    <result column="activate_state" jdbcType="BIGINT" property="activateState" />
+    <result column="activate_time" jdbcType="TIMESTAMP" property="activateTime" />
+    <result column="service_state" jdbcType="BIGINT" property="serviceState" />
+    <result column="receive_protocal" jdbcType="TINYINT" property="receiveProtocal" />
+    <result column="receive_mailType" jdbcType="BIGINT" property="receiveMailtype" />
+    <result column="server_verify" jdbcType="TINYINT" property="serverVerify" />
+    <result column="reserved_field1" jdbcType="VARCHAR" property="reservedField1" />
+    <result column="reserved_field2" jdbcType="VARCHAR" property="reservedField2" />
+    <result column="reserved_field3" jdbcType="VARCHAR" property="reservedField3" />
+    <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+    <result column="alarm" jdbcType="VARCHAR" property="alarm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, smtp_host, smtp_username, smtp_password, smtp_useremail, smtp_port, smtp_auth, 
+    smtp_use_ssl, lang_id, register_time, mail_lasttime, pop3_host, pop3_port, pop3_use_ssl, 
+    pop3_auth, server_connectivity, activate_state, activate_time, service_state, receive_protocal, 
+    receive_mailType, server_verify, reserved_field1, reserved_field2, reserved_field3, 
+    company_id, alarm
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="smtpHost != null">
+        smtp_host,
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username,
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password,
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail,
+      </if>
+      <if test="smtpPort != null">
+        smtp_port,
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth,
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl,
+      </if>
+      <if test="langId != null">
+        lang_id,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime,
+      </if>
+      <if test="pop3Host != null">
+        pop3_host,
+      </if>
+      <if test="pop3Port != null">
+        pop3_port,
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl,
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth,
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity,
+      </if>
+      <if test="activateState != null">
+        activate_state,
+      </if>
+      <if test="activateTime != null">
+        activate_time,
+      </if>
+      <if test="serviceState != null">
+        service_state,
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal,
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType,
+      </if>
+      <if test="serverVerify != null">
+        server_verify,
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1,
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2,
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="alarm != null">
+        alarm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpHost != null">
+        #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        #{alarm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.UserInfo">
+    update user_info
+    <set>
+      <if test="smtpHost != null">
+        smtp_host = #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username = #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password = #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail = #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        smtp_port = #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth = #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl = #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        lang_id = #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime = #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        pop3_host = #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        pop3_port = #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl = #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth = #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity = #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        activate_state = #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        activate_time = #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        service_state = #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal = #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType = #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        server_verify = #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1 = #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2 = #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3 = #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        alarm = #{alarm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.UserInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="smtp_host" jdbcType="VARCHAR" property="smtpHost" />
+    <result column="smtp_username" jdbcType="VARCHAR" property="smtpUsername" />
+    <result column="smtp_password" jdbcType="VARCHAR" property="smtpPassword" />
+    <result column="smtp_useremail" jdbcType="VARCHAR" property="smtpUseremail" />
+    <result column="smtp_port" jdbcType="SMALLINT" property="smtpPort" />
+    <result column="smtp_auth" jdbcType="BIGINT" property="smtpAuth" />
+    <result column="smtp_use_ssl" jdbcType="TINYINT" property="smtpUseSsl" />
+    <result column="lang_id" jdbcType="SMALLINT" property="langId" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="mail_lasttime" jdbcType="TIMESTAMP" property="mailLasttime" />
+    <result column="pop3_host" jdbcType="VARCHAR" property="pop3Host" />
+    <result column="pop3_port" jdbcType="INTEGER" property="pop3Port" />
+    <result column="pop3_use_ssl" jdbcType="BIGINT" property="pop3UseSsl" />
+    <result column="pop3_auth" jdbcType="BIGINT" property="pop3Auth" />
+    <result column="server_connectivity" jdbcType="BIGINT" property="serverConnectivity" />
+    <result column="activate_state" jdbcType="BIGINT" property="activateState" />
+    <result column="activate_time" jdbcType="TIMESTAMP" property="activateTime" />
+    <result column="service_state" jdbcType="BIGINT" property="serviceState" />
+    <result column="receive_protocal" jdbcType="TINYINT" property="receiveProtocal" />
+    <result column="receive_mailType" jdbcType="BIGINT" property="receiveMailtype" />
+    <result column="server_verify" jdbcType="TINYINT" property="serverVerify" />
+    <result column="reserved_field1" jdbcType="VARCHAR" property="reservedField1" />
+    <result column="reserved_field2" jdbcType="VARCHAR" property="reservedField2" />
+    <result column="reserved_field3" jdbcType="VARCHAR" property="reservedField3" />
+    <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+    <result column="alarm" jdbcType="VARCHAR" property="alarm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, smtp_host, smtp_username, smtp_password, smtp_useremail, smtp_port, smtp_auth, 
+    smtp_use_ssl, lang_id, register_time, mail_lasttime, pop3_host, pop3_port, pop3_use_ssl, 
+    pop3_auth, server_connectivity, activate_state, activate_time, service_state, receive_protocal, 
+    receive_mailType, server_verify, reserved_field1, reserved_field2, reserved_field3, 
+    company_id, alarm
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="smtpHost != null">
+        smtp_host,
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username,
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password,
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail,
+      </if>
+      <if test="smtpPort != null">
+        smtp_port,
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth,
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl,
+      </if>
+      <if test="langId != null">
+        lang_id,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime,
+      </if>
+      <if test="pop3Host != null">
+        pop3_host,
+      </if>
+      <if test="pop3Port != null">
+        pop3_port,
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl,
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth,
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity,
+      </if>
+      <if test="activateState != null">
+        activate_state,
+      </if>
+      <if test="activateTime != null">
+        activate_time,
+      </if>
+      <if test="serviceState != null">
+        service_state,
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal,
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType,
+      </if>
+      <if test="serverVerify != null">
+        server_verify,
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1,
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2,
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="alarm != null">
+        alarm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpHost != null">
+        #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        #{alarm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.UserInfo">
+    update user_info
+    <set>
+      <if test="smtpHost != null">
+        smtp_host = #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username = #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password = #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail = #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        smtp_port = #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth = #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl = #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        lang_id = #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime = #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        pop3_host = #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        pop3_port = #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl = #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth = #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity = #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        activate_state = #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        activate_time = #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        service_state = #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal = #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType = #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        server_verify = #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1 = #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2 = #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3 = #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        alarm = #{alarm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.UserInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="smtp_host" jdbcType="VARCHAR" property="smtpHost" />
+    <result column="smtp_username" jdbcType="VARCHAR" property="smtpUsername" />
+    <result column="smtp_password" jdbcType="VARCHAR" property="smtpPassword" />
+    <result column="smtp_useremail" jdbcType="VARCHAR" property="smtpUseremail" />
+    <result column="smtp_port" jdbcType="SMALLINT" property="smtpPort" />
+    <result column="smtp_auth" jdbcType="BIGINT" property="smtpAuth" />
+    <result column="smtp_use_ssl" jdbcType="TINYINT" property="smtpUseSsl" />
+    <result column="lang_id" jdbcType="SMALLINT" property="langId" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="mail_lasttime" jdbcType="TIMESTAMP" property="mailLasttime" />
+    <result column="pop3_host" jdbcType="VARCHAR" property="pop3Host" />
+    <result column="pop3_port" jdbcType="INTEGER" property="pop3Port" />
+    <result column="pop3_use_ssl" jdbcType="BIGINT" property="pop3UseSsl" />
+    <result column="pop3_auth" jdbcType="BIGINT" property="pop3Auth" />
+    <result column="server_connectivity" jdbcType="BIGINT" property="serverConnectivity" />
+    <result column="activate_state" jdbcType="BIGINT" property="activateState" />
+    <result column="activate_time" jdbcType="TIMESTAMP" property="activateTime" />
+    <result column="service_state" jdbcType="BIGINT" property="serviceState" />
+    <result column="receive_protocal" jdbcType="TINYINT" property="receiveProtocal" />
+    <result column="receive_mailType" jdbcType="BIGINT" property="receiveMailtype" />
+    <result column="server_verify" jdbcType="TINYINT" property="serverVerify" />
+    <result column="reserved_field1" jdbcType="VARCHAR" property="reservedField1" />
+    <result column="reserved_field2" jdbcType="VARCHAR" property="reservedField2" />
+    <result column="reserved_field3" jdbcType="VARCHAR" property="reservedField3" />
+    <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+    <result column="alarm" jdbcType="VARCHAR" property="alarm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, smtp_host, smtp_username, smtp_password, smtp_useremail, smtp_port, smtp_auth, 
+    smtp_use_ssl, lang_id, register_time, mail_lasttime, pop3_host, pop3_port, pop3_use_ssl, 
+    pop3_auth, server_connectivity, activate_state, activate_time, service_state, receive_protocal, 
+    receive_mailType, server_verify, reserved_field1, reserved_field2, reserved_field3, 
+    company_id, alarm
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="smtpHost != null">
+        smtp_host,
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username,
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password,
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail,
+      </if>
+      <if test="smtpPort != null">
+        smtp_port,
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth,
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl,
+      </if>
+      <if test="langId != null">
+        lang_id,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime,
+      </if>
+      <if test="pop3Host != null">
+        pop3_host,
+      </if>
+      <if test="pop3Port != null">
+        pop3_port,
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl,
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth,
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity,
+      </if>
+      <if test="activateState != null">
+        activate_state,
+      </if>
+      <if test="activateTime != null">
+        activate_time,
+      </if>
+      <if test="serviceState != null">
+        service_state,
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal,
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType,
+      </if>
+      <if test="serverVerify != null">
+        server_verify,
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1,
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2,
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="alarm != null">
+        alarm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpHost != null">
+        #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        #{alarm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.UserInfo">
+    update user_info
+    <set>
+      <if test="smtpHost != null">
+        smtp_host = #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username = #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password = #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail = #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        smtp_port = #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth = #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl = #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        lang_id = #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime = #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        pop3_host = #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        pop3_port = #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl = #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth = #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity = #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        activate_state = #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        activate_time = #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        service_state = #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal = #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType = #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        server_verify = #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1 = #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2 = #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3 = #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        alarm = #{alarm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.cbec.model.UserInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="smtp_host" jdbcType="VARCHAR" property="smtpHost" />
+    <result column="smtp_username" jdbcType="VARCHAR" property="smtpUsername" />
+    <result column="smtp_password" jdbcType="VARCHAR" property="smtpPassword" />
+    <result column="smtp_useremail" jdbcType="VARCHAR" property="smtpUseremail" />
+    <result column="smtp_port" jdbcType="SMALLINT" property="smtpPort" />
+    <result column="smtp_auth" jdbcType="BIGINT" property="smtpAuth" />
+    <result column="smtp_use_ssl" jdbcType="TINYINT" property="smtpUseSsl" />
+    <result column="lang_id" jdbcType="SMALLINT" property="langId" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="mail_lasttime" jdbcType="TIMESTAMP" property="mailLasttime" />
+    <result column="pop3_host" jdbcType="VARCHAR" property="pop3Host" />
+    <result column="pop3_port" jdbcType="INTEGER" property="pop3Port" />
+    <result column="pop3_use_ssl" jdbcType="BIGINT" property="pop3UseSsl" />
+    <result column="pop3_auth" jdbcType="BIGINT" property="pop3Auth" />
+    <result column="server_connectivity" jdbcType="BIGINT" property="serverConnectivity" />
+    <result column="activate_state" jdbcType="BIGINT" property="activateState" />
+    <result column="activate_time" jdbcType="TIMESTAMP" property="activateTime" />
+    <result column="service_state" jdbcType="BIGINT" property="serviceState" />
+    <result column="receive_protocal" jdbcType="TINYINT" property="receiveProtocal" />
+    <result column="receive_mailType" jdbcType="BIGINT" property="receiveMailtype" />
+    <result column="server_verify" jdbcType="TINYINT" property="serverVerify" />
+    <result column="reserved_field1" jdbcType="VARCHAR" property="reservedField1" />
+    <result column="reserved_field2" jdbcType="VARCHAR" property="reservedField2" />
+    <result column="reserved_field3" jdbcType="VARCHAR" property="reservedField3" />
+    <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+    <result column="alarm" jdbcType="VARCHAR" property="alarm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, smtp_host, smtp_username, smtp_password, smtp_useremail, smtp_port, smtp_auth, 
+    smtp_use_ssl, lang_id, register_time, mail_lasttime, pop3_host, pop3_port, pop3_use_ssl, 
+    pop3_auth, server_connectivity, activate_state, activate_time, service_state, receive_protocal, 
+    receive_mailType, server_verify, reserved_field1, reserved_field2, reserved_field3, 
+    company_id, alarm
+  </sql>
+  <insert id="insertSelective" parameterType="com.cbec.model.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="smtpHost != null">
+        smtp_host,
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username,
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password,
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail,
+      </if>
+      <if test="smtpPort != null">
+        smtp_port,
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth,
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl,
+      </if>
+      <if test="langId != null">
+        lang_id,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime,
+      </if>
+      <if test="pop3Host != null">
+        pop3_host,
+      </if>
+      <if test="pop3Port != null">
+        pop3_port,
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl,
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth,
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity,
+      </if>
+      <if test="activateState != null">
+        activate_state,
+      </if>
+      <if test="activateTime != null">
+        activate_time,
+      </if>
+      <if test="serviceState != null">
+        service_state,
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal,
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType,
+      </if>
+      <if test="serverVerify != null">
+        server_verify,
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1,
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2,
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="alarm != null">
+        alarm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpHost != null">
+        #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        #{alarm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cbec.model.UserInfo">
+    update user_info
+    <set>
+      <if test="smtpHost != null">
+        smtp_host = #{smtpHost,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUsername != null">
+        smtp_username = #{smtpUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPassword != null">
+        smtp_password = #{smtpPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpUseremail != null">
+        smtp_useremail = #{smtpUseremail,jdbcType=VARCHAR},
+      </if>
+      <if test="smtpPort != null">
+        smtp_port = #{smtpPort,jdbcType=SMALLINT},
+      </if>
+      <if test="smtpAuth != null">
+        smtp_auth = #{smtpAuth,jdbcType=BIGINT},
+      </if>
+      <if test="smtpUseSsl != null">
+        smtp_use_ssl = #{smtpUseSsl,jdbcType=TINYINT},
+      </if>
+      <if test="langId != null">
+        lang_id = #{langId,jdbcType=SMALLINT},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mailLasttime != null">
+        mail_lasttime = #{mailLasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pop3Host != null">
+        pop3_host = #{pop3Host,jdbcType=VARCHAR},
+      </if>
+      <if test="pop3Port != null">
+        pop3_port = #{pop3Port,jdbcType=INTEGER},
+      </if>
+      <if test="pop3UseSsl != null">
+        pop3_use_ssl = #{pop3UseSsl,jdbcType=BIGINT},
+      </if>
+      <if test="pop3Auth != null">
+        pop3_auth = #{pop3Auth,jdbcType=BIGINT},
+      </if>
+      <if test="serverConnectivity != null">
+        server_connectivity = #{serverConnectivity,jdbcType=BIGINT},
+      </if>
+      <if test="activateState != null">
+        activate_state = #{activateState,jdbcType=BIGINT},
+      </if>
+      <if test="activateTime != null">
+        activate_time = #{activateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serviceState != null">
+        service_state = #{serviceState,jdbcType=BIGINT},
+      </if>
+      <if test="receiveProtocal != null">
+        receive_protocal = #{receiveProtocal,jdbcType=TINYINT},
+      </if>
+      <if test="receiveMailtype != null">
+        receive_mailType = #{receiveMailtype,jdbcType=BIGINT},
+      </if>
+      <if test="serverVerify != null">
+        server_verify = #{serverVerify,jdbcType=TINYINT},
+      </if>
+      <if test="reservedField1 != null">
+        reserved_field1 = #{reservedField1,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField2 != null">
+        reserved_field2 = #{reservedField2,jdbcType=VARCHAR},
+      </if>
+      <if test="reservedField3 != null">
+        reserved_field3 = #{reservedField3,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm != null">
+        alarm = #{alarm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
